@@ -8,12 +8,15 @@ function generateTarget() {
 }
 
 // compare the guesses from user and computer
-// returns true is the user is closer to the target or 
-// the game is a tie
+// returns true is the user is closer to the target or the game is a tie
 // otherwise it returns false
 function compareGuesses(playerGuess, computerGuess, targetNumber) {
-    if (Math.abs(targetNumber - playerGuess) <= Math.abs(targetNumber - computerGuess)) return true;
+    if (getAbsoluteDistance(targetNumber, playerGuess) <= getAbsoluteDistance(targetNumber, computerGuess)) return true;
     else return false;
+}
+
+function getAbsoluteDistance(num1, num2) {
+    return Math.abs(num1 - num2);
 }
 
 // increase the score depending on the winner
